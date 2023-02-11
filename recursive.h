@@ -1,12 +1,30 @@
-#include <iostream>
-using namespace std;
-#ifndef RECURSIVE_H
-#define RECURSIVE_H
+#include<iostream>
 
-int showUp(int n);
-int showDn(int n);
-int  inkUp(int z);
-int  dictDn(int n);
-int getMin(int* ar, int size);
-int getMax(int* ar, int size);
-#endif
+int n_to_o(int n) {
+        if (n == 0) {
+                std::cout << n << std::endl;
+                return 0;
+        }
+
+        std::cout << n << " ";
+        n_to_o(n - 1);
+        return 0;
+}
+
+
+int o_to_n(int n) {
+        if (n == 0) {
+                std::cout << n << " ";
+                return 0;
+        }
+
+        o_to_n(n - 1);
+        std::cout << n << " ";
+        return 0;
+}
+
+int main() {
+        int n = 5;
+        n_to_o(n);
+        o_to_n(n);
+}
