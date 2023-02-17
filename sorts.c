@@ -15,19 +15,47 @@ int main()
     std::chrono::time_point<std::chrono::high_resolution_clock> start;
     start = std::choro::high_resolution_clock::now();
     
-int mergeSort(int* ar, int size) {
-    if(size <= 1) {
-        return -1;
+
+
+static void merge(int* ar, int size, int central) {
+    int left = 0;
+    int right = central;
+    int* arTemp = new int [size];
+    int indexTemp = 0;
+
+    while (left < central && right < size) {
+        while(ar[left] <= ar[right] && left < central) {
+            arTemp[indexTemp++] = ar[left++];
+//            left++;
+//            indexTemp++;
+        }
+        while(ar[left] > ar[right] && right < size) {
+            arTemp[indexTemp] = ar[right];
+            indexTemp++;
+            right++;
+        }
     }
-    int lSize = size/2;
-    int rSize = size - lSize;
-    mergeSort(ar, lSize);
-    mergeSort(ar + lSize, rSize);
-    int* sAr = new int[size];
-    merge(ar, lSize, ar + lSize, rSize, sAr);
-    std::memcpy(ar, sAr, sizeof(int) * size);
-    delete [] sAr;
-    return -1;
+
+    while (left < central) {
+        arTemp[indexTemp++] = ar[left++];
+    }
+    while (right < size) {
+        arTemp[indexTemp++] = ar[right++];
+    }
+
+    memcpy(ar, arTemp, size * sizeof(int));
+
+    delete [] arTemp;
+}
+
+void mergeSort(int* ar, int size) {
+    if (size <= 1) {
+        return;
+    }
+    mergeSort(&ar[0], size >> 1);
+    mergeSort(&ar[size >> 1], size - (size >> 1));
+
+    merge(ar, size, size >> 1);
 }
 
     
