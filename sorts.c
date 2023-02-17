@@ -2,6 +2,7 @@
 #include <iostream>
 #include <chrono>
 #include <cstring>
+#include "sorts.h"
 using namespace std;
 
 int main()
