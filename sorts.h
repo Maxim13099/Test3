@@ -1,5 +1,9 @@
-#ifndef SORTS_H
-#define SORTS_H
-void merge(int*, int, int*, int, int*);
-int mergeSort(int*, int);
+#ifndef _mergeSort_h_
+#define _mergeSort_h_
+
+#include <cstring>
+
+
+void mergeSort(int* ar, int size);
+
 #endif
