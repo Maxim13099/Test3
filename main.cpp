@@ -1,9 +1,10 @@
 #include <iostream> 
 #include <fstream> 
 #include <string> 
+
 using namespace std; 
  
-bool isPalindrome(string s) { 
+bool isPalindrome(const string& s) { 
     int n = s.length(); 
     for (int i = 0; i < n / 2; i++) { 
         if (s[i] != s[n - i - 1]) { 
@@ -13,7 +14,12 @@ bool isPalindrome(string s) {
     return true; 
 } 
  
-int main() { 
+int main(int argc, char** argv) { 
+
+	argv[1] -- имя файла, которое передаётся во время вызова программы
+		числа надо считать из файла...
+		и записать их в другой файл...
+
     ifstream inputFile("text.txt"); 
     if (!inputFile) { 
         cout << "Error." << endl; 
