@@ -1,0 +1,5 @@
+palindrome = 123321
+palindrome = 456654
+not a palindrome = 159654
+not a palindrome = 9846513
+palindrome = 789987
