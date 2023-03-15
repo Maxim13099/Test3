@@ -19,16 +19,19 @@ int main(int argc, char** argv) {
         cout << "Error." << endl; 
         return 1; 
     } 
- 
     string number; 
-    while (inputFile >> number) { 
+    string path = "myFile.txt";  
+    ofstream fout;
+    fout.open(path);
+    while (inputFile >> number) {
         if (isPalindrome(number)) { 
-            cout << "palindrome = " << number << endl; 
+            fout << "palindrome = " << number << endl; 
         } 
         else { 
-            cout << "not a palindrome = "  << number << endl; 
+            fout << "not a palindrome = "  << number << endl; 
         } 
     } 
+    fout.close();
  
     inputFile.close(); 
     return 0; 
